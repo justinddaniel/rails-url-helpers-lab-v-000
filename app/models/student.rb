@@ -3,7 +3,7 @@ class Student < ActiveRecord::Base
   after initialize :init
 
   def init
-    self.active = true if (self.has_attribute? :active) && self.active.nil?
+    self.active = true if self.active.nil?
   end
 
   def to_s
