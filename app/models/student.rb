@@ -1,8 +1,8 @@
 class Student < ActiveRecord::Base
 
-  after initialize :init
+  after_initialize :set_defaults, unless: :persisted?
 
-  def init
+  def set_defaults
     self.active = true if self.active.nil?
   end
 
